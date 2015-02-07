@@ -25,7 +25,7 @@
   <Applications>
     <Application Id="App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="PrototypeTinder4Jobs.App">
+        EntryPoint="Tinder4Jobs">
         <m3:VisualElements
             DisplayName="PrototypeTinder4Jobs"
             Square150x150Logo="Assets\Logo.png"

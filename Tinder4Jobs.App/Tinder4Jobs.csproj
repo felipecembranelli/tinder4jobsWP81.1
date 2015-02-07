@@ -7,8 +7,8 @@
     <ProjectGuid>{868485B2-2D1D-4165-ADF5-E028EB9EBC1A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrototypeTinder4Jobs</RootNamespace>
-    <AssemblyName>PrototypeTinder4Jobs</AssemblyName>
+    <RootNamespace>Tinder4Jobs</RootNamespace>
+    <AssemblyName>Tinder4Jobs</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -83,6 +83,12 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.WP81, Version=3.8.7.4">
+      <Name>SQLite for Windows Phone 8.1</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -92,26 +98,37 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="CustomPhoneApplicationFrame.cs" />
-    <Compile Include="InitialPage.xaml.cs">
+    <Compile Include="Common\CustomPhoneApplicationFrame.cs" />
+    <Compile Include="Data\DatabaseLinkedinJobHelperClass.cs" />
+    <Compile Include="Data\LinkedinJobDataMapper.cs" />
+    <Compile Include="Data\SQLite.cs" />
+    <Compile Include="Data\SQLiteAsync.cs" />
+    <Compile Include="oAuth\Linkedin\LinkedInJob.cs" />
+    <Compile Include="oAuth\Linkedin\LinkedInSessionInfo.cs" />
+    <Compile Include="oAuth\Linkedin\LinkedInUser.cs" />
+    <Compile Include="oAuth\OAuthUtil.cs" />
+    <Compile Include="Utils\QueryString.cs" />
+    <Compile Include="Tinder\TinderSession.cs" />
+    <Compile Include="View\InitialPage.xaml.cs">
       <DependentUpon>InitialPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Logging.xaml.cs">
+    <Compile Include="View\Logging.xaml.cs">
       <DependentUpon>Logging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profile.xaml.cs">
+    <Compile Include="View\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JobDetail.xaml.cs">
+    <Compile Include="View\JobDetail.xaml.cs">
       <DependentUpon>JobDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JobList.xaml.cs">
+    <Compile Include="View\JobList.xaml.cs">
       <DependentUpon>JobList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\TinderSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -157,30 +174,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="InitialPage.xaml">
+    <Page Include="View\InitialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Logging.xaml">
+    <Page Include="View\Logging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Profile.xaml">
+    <Page Include="View\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="JobDetail.xaml">
+    <Page Include="View\JobDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="JobList.xaml">
+    <Page Include="View\JobList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteWinRT">
+      <HintPath>..\packages\Sqlite-Winrt.3.8.7.1\lib\wpa81\SQLiteWinRT.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Tinder4Jobs.sqlite" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

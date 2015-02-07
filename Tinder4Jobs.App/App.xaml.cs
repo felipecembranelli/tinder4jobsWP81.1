@@ -19,7 +19,7 @@ using PrototypeTinder4Jobs.Controls;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
-namespace PrototypeTinder4Jobs
+namespace Tinder4Jobs
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

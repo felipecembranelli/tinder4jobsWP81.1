@@ -16,17 +16,26 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
-namespace PrototypeTinder4Jobs
+
+//{
+//  "firstName": "Felipe",
+//  "headline": "Manager at CI&T",
+//  "id": "NXuh5iuCgC",
+//  "lastName": "Cembranelli",
+//  "siteStandardProfileRequest": {"url": "https://www.linkedin.com/profile/view?id=3770090&authType=name&authToken=moVF&trk=api*a3576543*s3647743*"}
+//}
+
+namespace Tinder4Jobs
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class JobDetail : Page
+    public sealed partial class Profile : Page
     {
         private readonly NavigationHelper navigationHelper;
 
 
-        public JobDetail()
+        public Profile()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Required;
