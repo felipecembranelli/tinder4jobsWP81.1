@@ -1,0 +1,188 @@
+﻿<Page
+    x:Class="PrototypeTinder4Jobs.JobDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrototypeTinder4Jobs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="ImageBorderBrush" Color="#FFA4A4A4" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Height="680"
+                VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+                BorderBrush="{StaticResource ImageBorderBrush}"
+                BorderThickness="2"
+                CacheMode="BitmapCache"
+                RenderTransformOrigin="0.5,0.5" 
+                
+            ManipulationMode="System">
+            <Border.RenderTransform>
+                <CompositeTransform x:Name="transform" TranslateX="0" />
+            </Border.RenderTransform>
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/Images/linkedin6.png" Stretch="Fill" />
+            </Border.Background>
+            <StackPanel Orientation="Vertical" 
+                            VerticalAlignment="Stretch" >
+                <Grid HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <!--<ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />-->
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    <StackPanel Margin="12,10,10,10"
+                                VerticalAlignment="Stretch"
+                                Orientation="Vertical"
+                                    Grid.Row="0">
+                        <!--<Border x:Name="ClientArea" Background="White">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                </Grid>
+                            </Border>-->
+
+
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Job Id" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="0,0,0,-5" 
+                               FontWeight="Bold"/>
+                        <Border BorderBrush="Gray" 
+                                    BorderThickness="1" 
+                                    Margin="0,5,5,5" 
+                                     Opacity="10"
+                                    Background="#DDFBFBFD"
+                                      CornerRadius="15,15,15,15">
+                            <TextBlock Height="45"
+                                   HorizontalAlignment="Stretch"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                   Text="123232"
+                                           Opacity="30"
+                                     TextWrapping="Wrap" Margin="0.167,0,0,0" />
+                        </Border>
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Job Location" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="0,0,0,-5" 
+                               FontWeight="Bold"/>
+                        <Border 
+                                BorderBrush="Gray" 
+                                BorderThickness="1" 
+                                Margin="5,5,5,5"
+                                 Opacity="20" 
+                                Background="#DDFBFBFD"
+                                  CornerRadius="15,15,15,15">
+                            <TextBlock Height="50"
+                                   HorizontalAlignment="Stretch"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                   Text="Location XYZ"
+                                   TextWrapping="Wrap" 
+                                           
+                                           />
+                        </Border>
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Job Poster" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="0,0,0,-5" 
+                               FontWeight="Bold"/>
+                        <Border 
+                                BorderBrush="Gray" 
+                                BorderThickness="1" 
+                                Margin="5,5,5,5"
+                                 Opacity="20" 
+                                Background="#DDFBFBFD"
+                                  CornerRadius="15,15,15,15">
+                            <TextBlock Height="50"
+                                   HorizontalAlignment="Stretch"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                   Text="Job poster XXX"
+                                   TextWrapping="Wrap" 
+                                           
+                                           />
+                        </Border>
+                        <TextBlock TextWrapping="Wrap" 
+                               Text="Description" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="0,0,0,-5" 
+                               FontWeight="Bold"/>
+                        <Border BorderBrush="Gray" 
+                                    BorderThickness="1" 
+                                    Margin="5,5,5,5"
+                                    Background="#DDFBFBFD" Opacity="0.99"
+                                      CornerRadius="15,15,15,15"
+                              >
+                            <ScrollViewer  Height="350" VerticalScrollBarVisibility="Auto" Canvas.Top="100" Canvas.Left="200" Margin="0.167,0">
+                                <TextBlock 
+                                   TextWrapping="Wrap"
+                                       Padding="10"
+                                   HorizontalAlignment="Stretch"
+                                       FontSize="15"
+                                    Opacity="50"    
+                                      
+                                   Text="Successful Relationship Manager has a strategic approach to selling, able to bring value to the customer and serve as a trusted advisor. They invest in making the customer stronger and proactively seek out opportunities for growth. Have the best interest of the client in mind and act as an internal advocate to ensure they are set up for success.
+Responsibilities
+Drive revenue
+Proactive selling and growing the account off-cycle is a key aspect of the success of a RM. This is not just an Account Manager or renewals job. LinkendIn Relationship Manager are sales people and thrive on growing their book of business by creating value;
+We have a strong value for bringing an exceptional client experience and it is the job of the Relationship Manager to make sure that we support our clients' business with excellence. We want our customers to not just do business with us because we have the best talent solutions in the market, but also because they love doing business with us.
+Invest in the team
+We have very strong teams here at LinkedIn. One of the greatest things about working in sales at LinkedIn is the people that you will work with. Our Relationship Managers invest heavily in each other, growing and finding success in the job by learning from one anothers' successes and failures and by building each other up.
+Requirements
+Proven record of driving results in a high-growth company environment;
+Established reputation as a high integrity, top performer;
+Good experience with sales;
+Experience in staffing agencies is a plus;
+Experience with Salesforce.com platform is a plus."
+                                           Margin="0.167,0,0,0" 
+                                           Foreground="Black"
+                                       />
+                            </ScrollViewer>
+                        </Border>
+
+                    </StackPanel>
+
+                   
+                </Grid>
+
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
