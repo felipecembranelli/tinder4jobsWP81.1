@@ -16,7 +16,7 @@
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -83,7 +83,7 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
-    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+    <SDKReference Include="Microsoft.VCLibs, Version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
     </SDKReference>
     <SDKReference Include="SQLite.WP81, Version=3.8.7.4">
@@ -103,12 +103,17 @@
     <Compile Include="Data\LinkedinJobDataMapper.cs" />
     <Compile Include="Data\SQLite.cs" />
     <Compile Include="Data\SQLiteAsync.cs" />
+    <Compile Include="oAuth\Linkedin\LinkedinAuthentication.cs" />
     <Compile Include="oAuth\Linkedin\LinkedInJob.cs" />
     <Compile Include="oAuth\Linkedin\LinkedInSessionInfo.cs" />
     <Compile Include="oAuth\Linkedin\LinkedInUser.cs" />
+    <Compile Include="oAuth\oAuthSessionManager.cs" />
     <Compile Include="oAuth\OAuthUtil.cs" />
     <Compile Include="Utils\QueryString.cs" />
     <Compile Include="Tinder\TinderSession.cs" />
+    <Compile Include="ViewModel\JobReccommendationsViewModel.cs" />
+    <Compile Include="ViewModel\ObservableObject.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\InitialPage.xaml.cs">
       <DependentUpon>InitialPage.xaml</DependentUpon>
     </Compile>
@@ -201,7 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Tinder4Jobs.Library.MVVM
+namespace TinderApp.Library.MVVM
 {
     public class RelayCommand : ICommand
     {

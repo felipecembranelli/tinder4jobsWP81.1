@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tinder4Jobs.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,17 @@ namespace Tinder4Jobs
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private JobReccommendationsViewModel viewModel;
+        private int likeCount = 0;
+        private int passCount = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            viewModel = new JobReccommendationsViewModel();
+            DataContext = viewModel;
+            this.txtJobCount.Text = string.Format("Jobs({0}) : Likes({1}) / Pass({2})", viewModel.JobCount, likeCount, passCount);
         }
 
         /// <summary>
@@ -34,6 +43,7 @@ namespace Tinder4Jobs
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //base.OnNavigatedTo(e);
         }
 
         private void btnLeftMenu(object sender, RoutedEventArgs e)
@@ -80,7 +90,6 @@ namespace Tinder4Jobs
             this.Overlay.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
-
         #region Swiping
 
         private void OnManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
@@ -106,7 +115,32 @@ namespace Tinder4Jobs
             //    this.OnFlick(sender, e);
             //}
             //else
+            //    transform.TranslateX = 0;
+
+
+            //double horizontalVelocity = e.Velocities.Linear.X;
+            //double verticalVelocity = e.Velocities.Linear.Y;
+
+            //double angle = Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity));
+
+            if (transform.TranslateX > 500)
+            {
+                viewModel.LikeUser();
+                likeCount++;
+                
+            }
+
+
+            if (transform.TranslateX < -500)
+            {
+                viewModel.RejectUser();
+                passCount++;
+            }
+
+            this.txtJobCount.Text = string.Format("Jobs({0}) : Likes({1}) / Pass({2})", viewModel.JobCount, likeCount, passCount);
+
             transform.TranslateX = 0;
+
         }
 
         private void OnFlick(object sender, ManipulationCompletedRoutedEventArgs e)
@@ -118,10 +152,10 @@ namespace Tinder4Jobs
 
             if (this.GetDirection(horizontalVelocity, verticalVelocity) == Windows.UI.Xaml.Controls.Orientation.Horizontal)
             {
-                //if (angle >= 180)
-                //    //_viewModel.RejectUser();
-                //else
-                //    //_viewModel.LikeUser();
+                if (angle >= 180)
+                    viewModel.RejectUser();
+                else
+                    viewModel.LikeUser();
 
                 transform.TranslateX = 0;
             }
@@ -170,10 +204,10 @@ namespace Tinder4Jobs
 
             if (this.GetDirection(horizontalVelocity, verticalVelocity) == Windows.UI.Xaml.Controls.Orientation.Horizontal)
             {
-                //if (angle >= 180)
-                //    _viewModel.RejectUser();
-                //else
-                //    _viewModel.LikeUser();
+                if (angle >= 180)
+                    viewModel.RejectUser();
+                else
+                    viewModel.LikeUser();
 
                 transform.TranslateX = 0;
             }
@@ -186,6 +220,8 @@ namespace Tinder4Jobs
         }
 
         #endregion
+
+     
 
     }
 }

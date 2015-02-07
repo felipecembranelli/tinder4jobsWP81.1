@@ -299,7 +299,7 @@
                                 Orientation="Vertical"
                                     Grid.Row="0">
                             <TextBlock TextWrapping="Wrap" 
-                               Text="Job Id" 
+                               Text="Company" 
                                Foreground="White" 
                                VerticalAlignment="Top" 
                                HorizontalAlignment="Left" 
@@ -315,10 +315,11 @@
 
                                 <TextBlock Height="Auto"
                                    HorizontalAlignment="Stretch"
+                                Text="{Binding Name,
+                                Mode=OneWay}"
                                    Foreground="Black"
                                        FontSize="15"
                                        Padding="10"
-                                   Text="123232"
                                            Opacity="30"
                                      TextWrapping="Wrap" Margin="0.167,0,0,0" />
                             </Border>
@@ -338,11 +339,12 @@
                                 Background="#DDFBFBFD"
                                   CornerRadius="15,15,15,15">
                                 <TextBlock Height="Auto"
+                             Text="{Binding LocationDescription,
+                                Mode=OneWay}"
                                    HorizontalAlignment="Stretch"
                                    Foreground="Black"
                                        FontSize="15"
                                        Padding="10"
-                                   Text="Location XYZ"
                                    TextWrapping="Wrap" 
                                            
                                            />
@@ -360,20 +362,29 @@
                                     Margin="5,5,5,5"
                                     Background="#DDFBFBFD" Opacity="0.99"
                                       CornerRadius="15,15,15,15">
-                                <TextBlock Height="200"
+                                <TextBlock Height="180"
                                    TextWrapping="Wrap"
                                        Padding="10"
                                    HorizontalAlignment="Stretch"
                                        FontSize="15"
                                     Opacity="50"      
-                                   Text="JASDFQRUEOAM DSJFAJDSF ASDJFKSDAJFL AJDFLAKSJFLA ERAJRFA ASJDFLASF URUEWOIR AFJAKDF"
+                                    Text="{Binding DescriptionSnippet,
+                                        Mode=OneWay}"
                                        ScrollViewer.VerticalScrollMode="Auto" 
                                            Margin="0.167,0,0,0" 
                                            Foreground="Black"
                                        />
                             </Border>
-
-                        </StackPanel>
+                        <TextBlock TextWrapping="Wrap" 
+                                   Name="txtJobCount"
+                               Text="Total Jobs (0)" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="10,0,0,-5" 
+                               FontWeight="Bold"/>
+                    </StackPanel>
                       
                         <StackPanel Margin="12,20,10,0"
                                 VerticalAlignment="Bottom"

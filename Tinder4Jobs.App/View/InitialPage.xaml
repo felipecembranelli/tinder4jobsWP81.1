@@ -102,7 +102,7 @@
                 BorderBrush="#FF686868"
                 BorderThickness="0,2"
                 CornerRadius="20"
-                Visibility="Visible">
+                Visibility="Collapsed">
             <Grid>
                 <StackPanel Margin="24" Orientation="Vertical">
                     <TextBlock HorizontalAlignment="Center"
