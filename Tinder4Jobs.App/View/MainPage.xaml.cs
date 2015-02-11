@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tinder4Jobs.Model;
 using Tinder4Jobs.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -70,7 +71,13 @@ namespace Tinder4Jobs
 
         private void btnInfo(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(JobDetail));
+            var jobId = viewModel.CurrentJobReccomendation.Id;
+
+            if (!Frame.Navigate(typeof(JobDetail), jobId))
+            {
+                throw new Exception("Job detail not found");
+            }
+
         }
 
         private void btnJobList(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Tinder4Jobs.Library;
-using Tinder4Jobs.Library.Linkedin;
+using Tinder4Jobs.Model;
 using Tinder4Jobs.OAuth;
 using Windows.UI.Xaml.Controls;
 
@@ -104,6 +104,9 @@ namespace Tinder4Jobs.oAuth.Linkedin
 
             var linkedinUser = JsonConvert.DeserializeObject<LinkedinUser>(_linkedInProfile);
 
+
+            if (linkedinUser.FirstName == null)
+                throw new Exception("User not authenticated.");
             // FIM
 
             //ProfilePhoto.Background = new ImageBrush() { ImageSource = new BitmapImage(new Uri(String.Format("https://graph.facebook.com/me/picture?access_token={0}&height=100&width=100", accessToken))) };
@@ -123,7 +126,7 @@ namespace Tinder4Jobs.oAuth.Linkedin
 
             try
             {
-                if (await activeSession.Authenticate(_consumerKey, accessToken, oAuthVerifier, _consumerSecretKey, accessTokenSecretKey))
+                if (await activeSession.LoadLinkedinJobSuggestions(_consumerKey, accessToken, oAuthVerifier, _consumerSecretKey, accessTokenSecretKey))
                 {
                     //TODO : verificar por que está null o rightsidebar
                     // (App.Current as App).RightSideBar.DataContext = activeSession.Matches;
@@ -152,6 +155,15 @@ namespace Tinder4Jobs.oAuth.Linkedin
             //    var dialog = new MessageDialog("Unable to authenticate user: " + authenticationErrorMsg);
             //    await dialog.ShowAsync();
             //}
+
+            // Persist authentication data
+            oAuthData oAuthData = new oAuthData();
+            oAuthData.OAuthVerifier = oAuthVerifier;
+            oAuthData.AccessToken = accessToken;
+            oAuthData.AccessTokenSecretKey = accessTokenSecretKey;
+
+            oAuthSessionManager.Save(oAuthData);
+
         }
     }
 }

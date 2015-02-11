@@ -103,14 +103,16 @@
     <Compile Include="Data\LinkedinJobDataMapper.cs" />
     <Compile Include="Data\SQLite.cs" />
     <Compile Include="Data\SQLiteAsync.cs" />
+    <Compile Include="Model\EnumLinkedin.cs" />
     <Compile Include="oAuth\Linkedin\LinkedinAuthentication.cs" />
-    <Compile Include="oAuth\Linkedin\LinkedInJob.cs" />
-    <Compile Include="oAuth\Linkedin\LinkedInSessionInfo.cs" />
-    <Compile Include="oAuth\Linkedin\LinkedInUser.cs" />
+    <Compile Include="Model\LinkedInJob.cs" />
+    <Compile Include="Model\LinkedInSessionInfo.cs" />
+    <Compile Include="Model\LinkedInUser.cs" />
     <Compile Include="oAuth\oAuthSessionManager.cs" />
     <Compile Include="oAuth\OAuthUtil.cs" />
     <Compile Include="Utils\QueryString.cs" />
-    <Compile Include="Tinder\TinderSession.cs" />
+    <Compile Include="Model\TinderSession.cs" />
+    <Compile Include="ViewModel\JobDetailViewModel.cs" />
     <Compile Include="ViewModel\JobReccommendationsViewModel.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
@@ -205,7 +207,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Controller\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -217,7 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Tinder4Jobs.sqlite" />
+    <Content Include="Tinder4Jobs_v01.sqlite" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

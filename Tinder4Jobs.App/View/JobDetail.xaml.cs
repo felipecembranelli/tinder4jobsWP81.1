@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tinder4Jobs.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Tinder4Jobs.ViewModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -24,7 +26,7 @@ namespace Tinder4Jobs
     public sealed partial class JobDetail : Page
     {
         private readonly NavigationHelper navigationHelper;
-
+        private JobDetailViewModel viewModel;
 
         public JobDetail()
         {
@@ -33,6 +35,8 @@ namespace Tinder4Jobs
 
             this.navigationHelper = new NavigationHelper(this);
             //this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+
+            
         }
 
         public NavigationHelper NavigationHelper
@@ -40,7 +44,6 @@ namespace Tinder4Jobs
             get { return this.navigationHelper; }
         }
 
-    
 
         #region NavigationHelper registration
 
@@ -59,6 +62,23 @@ namespace Tinder4Jobs
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+            LinkedinJob jobModel = new LinkedinJob();
+
+            var job = jobModel.GetJobById(e.Parameter.ToString());
+
+            if (job != null)
+            {
+                viewModel = new JobDetailViewModel();
+
+                viewModel.CompanyName = job.Company.Name;
+                viewModel.DescriptionSnippet = job.DescriptionSnippet;
+                viewModel.JobPosterFirstName = job.JobPoster.FirstName;
+                viewModel.LocationDescription = job.LocationDescription;
+
+                DataContext = viewModel;
+
+            }
             this.navigationHelper.OnNavigatedTo(e);
         }
 

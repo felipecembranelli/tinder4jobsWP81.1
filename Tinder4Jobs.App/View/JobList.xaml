@@ -47,7 +47,7 @@
                                 <Border Background="#DDFBFBFD" Opacity="10" BorderThickness="1" BorderBrush="Gray" CornerRadius="15,15,15,15" Margin="5,5">
                             <StackPanel Margin="10,10,10,9.5" >
                                 <TextBlock
-                                    Text="{Binding CompanyName}"
+                                    Text="{Binding Company.Name}"
                                     TextWrapping="Wrap"
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
@@ -63,7 +63,7 @@
                                     FontSize="12"
                                     Margin="0,0,19,0"/>
                                 <TextBlock
-                                    Text="{Binding JobId}"
+                                    Text="{Binding Id}"
                                     TextWrapping="WrapWholeWords"
                                     Pivot.SlideInAnimationGroup="Default" 
                                     CommonNavigationTransitionInfo.IsStaggerElement="True" 
@@ -71,7 +71,15 @@
                                     FontSize="12"
                                     Margin="0,0,19,0"/>
                                 <TextBlock
-                                    Text="{Binding JobPoster}"
+                                    Text="{Binding JobPoster.FirstName}"
+                                    TextWrapping="WrapWholeWords"
+                                    Pivot.SlideInAnimationGroup="Default" 
+                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
+                                    Foreground="Black"
+                                    FontSize="12"
+                                    Margin="0,0,19,0"/>
+                                        <TextBlock
+                                    Text="{Binding LocationDescription}"
                                     TextWrapping="WrapWholeWords"
                                     Pivot.SlideInAnimationGroup="Default" 
                                     CommonNavigationTransitionInfo.IsStaggerElement="True" 
@@ -79,7 +87,7 @@
                                     FontSize="12"
                                     Margin="0,0,19,0"/>
 
-                            </StackPanel>
+                                    </StackPanel>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -97,36 +105,56 @@
                     IsItemClickEnabled="True"
                     ContinuumNavigationTransitionInfo.ExitElementContainer="True"
                     Name="ListViewReproved"
-                    Loaded="SecondPivot_Loaded">
+                    Loaded="SecondPivot_Loaded"
+                     ItemClick="ItemView_ItemClick">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,9.5">
-                                <TextBlock
-                                    Text="{Binding CompanyName}"
+                                <Border Background="#DDFBFBFD" Opacity="10" BorderThickness="1" BorderBrush="Gray" CornerRadius="15,15,15,15" Margin="5,5">
+                                    <StackPanel Margin="10,10,10,9.5" >
+                                        <TextBlock
+                                    Text="{Binding Company.Name}"
                                     TextWrapping="Wrap"
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Foreground="Black"
                                     FontSize="20"
                                     Margin="0,0,19,0"/>
-                                <TextBlock
+                                        <TextBlock
                                     Text="{Binding DescriptionSnippet}"
                                     TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
+                                    Pivot.SlideInAnimationGroup="1" 
                                     CommonNavigationTransitionInfo.IsStaggerElement="True" 
                                     Foreground="Black"
                                     FontSize="12"
                                     Margin="0,0,19,0"/>
-                                <TextBlock
-                                    Text="{Binding JobId}"
+                                        <TextBlock
+                                    Text="{Binding Id}"
                                     TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
+                                    Pivot.SlideInAnimationGroup="Default" 
                                     CommonNavigationTransitionInfo.IsStaggerElement="True" 
                                     Foreground="Black"
                                     FontSize="12"
                                     Margin="0,0,19,0"/>
-                            </StackPanel>
-                        </DataTemplate>
+                                        <TextBlock
+                                    Text="{Binding JobPoster.FirstName}"
+                                    TextWrapping="WrapWholeWords"
+                                    Pivot.SlideInAnimationGroup="Default" 
+                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
+                                    Foreground="Black"
+                                    FontSize="12"
+                                    Margin="0,0,19,0"/>
+                                        <TextBlock
+                                    Text="{Binding LocationDescription}"
+                                    TextWrapping="WrapWholeWords"
+                                    Pivot.SlideInAnimationGroup="Default" 
+                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
+                                    Foreground="Black"
+                                    FontSize="12"
+                                    Margin="0,0,19,0"/>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>

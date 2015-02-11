@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tinder4Jobs.Library.Linkedin;
+using Tinder4Jobs.Model;
 
 namespace TinderApp.DbHelper
 {
@@ -16,7 +16,7 @@ namespace TinderApp.DbHelper
     {
         //public static string DB_PATH = Path.Combine(Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, DB_FILE_NAME));//DataBase Name
         private string DB_PATH = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, DB_FILE_NAME_COPY);
-        private const string DB_FILE_NAME_COPY = "Tinder4Jobs_copy.sqlite";
+        private const string DB_FILE_NAME_COPY = "Tinder4Jobs_copy_v01.sqlite";
         
         SQLiteConnection dbConn;
        

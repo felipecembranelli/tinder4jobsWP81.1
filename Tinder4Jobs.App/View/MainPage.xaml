@@ -306,14 +306,25 @@
                                FontSize="17" 
                                Margin="10,0,0,-5" 
                                FontWeight="Bold"/>
-                            <Border BorderBrush="Gray" 
+                        <TextBlock Height="Auto"
+                                   HorizontalAlignment="Stretch"
+                                Text="{Binding JobId,
+                                Mode=OneWay}"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                           Opacity="30"
+                                     TextWrapping="Wrap" Margin="0.167,0,0,0" 
+                                       Visibility="Collapsed"
+                                       />
+                        <Border BorderBrush="Gray" 
                                     BorderThickness="1" 
                                     Margin="5,5,5,5" 
                                      Opacity="10"
                                     Background="#DDFBFBFD"
                                       CornerRadius="15,15,15,15">
-
-                                <TextBlock Height="Auto"
+                           
+                            <TextBlock Height="Auto"
                                    HorizontalAlignment="Stretch"
                                 Text="{Binding Name,
                                 Mode=OneWay}"

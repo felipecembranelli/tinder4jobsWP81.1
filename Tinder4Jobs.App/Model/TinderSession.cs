@@ -18,10 +18,9 @@ using Newtonsoft.Json;
 using System.IO;
 using TinderApp.DbHelper;
 using Windows.Storage;
-using Tinder4Jobs.Library.Linkedin;
 using Tinder4Jobs.OAuth;
 
-namespace Tinder4Jobs.Library
+namespace Tinder4Jobs.Model
 {
     [DataContract]
     public class TinderSession
@@ -154,7 +153,7 @@ namespace Tinder4Jobs.Library
         }
 
 
-        public async Task<Boolean> Authenticate(string _consumerKey,
+        public async Task<Boolean> LoadLinkedinJobSuggestions(string _consumerKey,
                                                 string _accessToken,
                                                 string _oAuthVerifier,
                                                 string _consumerSecretKey,
@@ -216,9 +215,6 @@ namespace Tinder4Jobs.Library
 
 
 
-                // PAREI AQUI : DESIREALIZAR O PROFILE DO USUARIO
-
-
                 //<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 //<person>
                 //  <first-name>Felipe</first-name>
@@ -229,35 +225,25 @@ namespace Tinder4Jobs.Library
                 //  </site-standard-profile-request>
                 //</person>
 
-                // MOCKUP
-                //var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-                //var file = await folder.GetFileAsync("jobs.json");
-
-                //using (StreamReader sRead = new StreamReader(await file.OpenStreamForReadAsync()))
-                //    _linkedInJobSuggestions = await sRead.ReadToEndAsync();
-
-                
                 LinkedinJobList linkedinJobList = JsonConvert.DeserializeObject<LinkedinJobList>(_linkedInJobSuggestions);
                 
-                foreach (var item in linkedinJobList.Jobs.Values)
-                {
-                    JobRecommendations.Push(item);
-                }
-
-                DatabaseLinkedinJobHelperClass dbHelper = new DatabaseLinkedinJobHelperClass();
+                // load only new job suggestions
 
                 foreach (var job in linkedinJobList.Jobs.Values)
                 {
-                    if (dbHelper.ReadJob(job.Id) == null)
-                        dbHelper.Insert(job);
-                    //else
-                    //    dbHelper.UpdateJob(job);
-                }
+                    DatabaseLinkedinJobHelperClass dbHelper = new DatabaseLinkedinJobHelperClass();
 
+                    if (dbHelper.ReadJob(job.Id) == null)
+                    {
+                        dbHelper.Insert(job);
+
+                        JobRecommendations.Push(job);
+                    }
+                }
             }
             catch (Exception Err)
             {
-                throw;
+                throw Err;
             }
 
             return true;

@@ -63,7 +63,7 @@
 
 
                         <TextBlock TextWrapping="Wrap" 
-                               Text="Job Id" 
+                               Text="Company" 
                                Foreground="White" 
                                VerticalAlignment="Top" 
                                HorizontalAlignment="Left" 
@@ -81,7 +81,7 @@
                                    Foreground="Black"
                                        FontSize="15"
                                        Padding="10"
-                                   Text="123232"
+                                       Text="{Binding CompanyName, Mode=OneWay}"
                                            Opacity="30"
                                      TextWrapping="Wrap" Margin="0.167,0,0,0" />
                         </Border>
@@ -105,7 +105,7 @@
                                    Foreground="Black"
                                        FontSize="15"
                                        Padding="10"
-                                   Text="Location XYZ"
+                                   Text="{Binding LocationDescription, Mode=OneWay}"
                                    TextWrapping="Wrap" 
                                            
                                            />
@@ -130,13 +130,13 @@
                                    Foreground="Black"
                                        FontSize="15"
                                        Padding="10"
-                                   Text="Job poster XXX"
+                                   Text="{Binding JobPosterFirstName, Mode=OneWay}"
                                    TextWrapping="Wrap" 
                                            
                                            />
                         </Border>
                         <TextBlock TextWrapping="Wrap" 
-                               Text="Description" 
+                                Text="Description"
                                Foreground="White" 
                                VerticalAlignment="Top" 
                                HorizontalAlignment="Left" 
@@ -156,20 +156,8 @@
                                    HorizontalAlignment="Stretch"
                                        FontSize="15"
                                     Opacity="50"    
-                                      
-                                   Text="Successful Relationship Manager has a strategic approach to selling, able to bring value to the customer and serve as a trusted advisor. They invest in making the customer stronger and proactively seek out opportunities for growth. Have the best interest of the client in mind and act as an internal advocate to ensure they are set up for success.
-Responsibilities
-Drive revenue
-Proactive selling and growing the account off-cycle is a key aspect of the success of a RM. This is not just an Account Manager or renewals job. LinkendIn Relationship Manager are sales people and thrive on growing their book of business by creating value;
-We have a strong value for bringing an exceptional client experience and it is the job of the Relationship Manager to make sure that we support our clients' business with excellence. We want our customers to not just do business with us because we have the best talent solutions in the market, but also because they love doing business with us.
-Invest in the team
-We have very strong teams here at LinkedIn. One of the greatest things about working in sales at LinkedIn is the people that you will work with. Our Relationship Managers invest heavily in each other, growing and finding success in the job by learning from one anothers' successes and failures and by building each other up.
-Requirements
-Proven record of driving results in a high-growth company environment;
-Established reputation as a high integrity, top performer;
-Good experience with sales;
-Experience in staffing agencies is a plus;
-Experience with Salesforce.com platform is a plus."
+                                      Text="{Binding DescriptionSnippet, Mode=OneWay}"
+                                 
                                            Margin="0.167,0,0,0" 
                                            Foreground="Black"
                                        />

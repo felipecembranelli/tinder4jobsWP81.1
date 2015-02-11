@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tinder4Jobs.Library
+namespace Tinder4Jobs.Model
 {
     public class LinkedInSessionInfo
     {
@@ -8,6 +8,6 @@ namespace Tinder4Jobs.Library
 
         public String AcessToken { get; set; }
 
-        public Linkedin.LinkedinUser LinkedinUser { get; set; }
+        public LinkedinUser LinkedinUser { get; set; }
     }
 }

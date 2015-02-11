@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Tinder4Jobs.Library;
-using Tinder4Jobs.Library.Linkedin;
 using Tinder4Jobs.oAuth;
 using Tinder4Jobs.oAuth.Linkedin;
 using Tinder4Jobs.OAuth;
@@ -43,18 +42,25 @@ namespace Tinder4Jobs
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // verify if already logged in authenticator authority
-            if (oAuthSessionManager.Load().AccessToken != null)
+            var oAuthData = oAuthSessionManager.Load();
+
+            if (oAuthData != null)
             {
                 // create session
                 LinkedinAuthentication lkdAuth = new LinkedinAuthentication();
 
-                lkdAuth.Authenticate(oAuthSessionManager.Load().AccessToken,
-                    oAuthSessionManager.Load().OAuthVerifier,
-                    oAuthSessionManager.Load().AccessTokenSecretKey,
+                try
+                {
+                    lkdAuth.Authenticate(oAuthData.AccessToken,
+                    oAuthData.OAuthVerifier,
+                    oAuthData.AccessTokenSecretKey,
                     this.Frame);
-
-                // call main page
-                //Frame.Navigate(typeof(MainPage));
+                }
+                catch (Exception ex)
+                {
+                    var dialog = new MessageDialog("Unable to authenticate user: " + ex.Message);
+                    //await dialog.ShowAsync();
+                }
             }
             else
             {

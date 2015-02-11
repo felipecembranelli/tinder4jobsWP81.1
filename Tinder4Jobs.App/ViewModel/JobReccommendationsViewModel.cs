@@ -10,9 +10,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI;
 using TinderApp.DbHelper;
 using Tinder4Jobs.Library.MVVM;
-using Tinder4Jobs.Library.Linkedin;
 using TinderApp.Library.MVVM;
 using Tinder4Jobs.Library;
+using Tinder4Jobs.Model;
 
 namespace Tinder4Jobs.ViewModel
 {
@@ -27,16 +27,12 @@ namespace Tinder4Jobs.ViewModel
 
         private readonly ICommand _rejectUserCommand;
 
-        //private UserResult _currentRec;
-
         private LinkedinJob _currentJob;
 
         public JobReccommendationsViewModel()
         {
             _likeUserCommand = new RelayCommand(LikeUser);
             _rejectUserCommand = new RelayCommand(RejectUser);
-
-            //&& TinderSession.CurrentSession.IsAuthenticated 
 
             if (TinderSession.CurrentSession != null 
                 && TinderSession.CurrentSession.JobRecommendations.Count > 0)
@@ -47,20 +43,8 @@ namespace Tinder4Jobs.ViewModel
                 RaisePropertyChanged("Name");
                 RaisePropertyChanged("DescriptionSnippet");
                 RaisePropertyChanged("LocationDescription");
-                //RaisePropertyChanged("LikeCount");
-                //RaisePropertyChanged("LikesBrush");
-                //RaisePropertyChanged("FriendsBrush");
-                //RaisePropertyChanged("PhotosBrush");
-                //RaisePropertyChanged("ProfilePhoto");
                 RaisePropertyChanged("CurrentJobReccomendation");
                 RaisePropertyChanged("JobCount");
-
-                  //[JsonProperty("company")]
-                    //[JsonProperty("descriptionSnippet")]
-                    //[JsonProperty("id")]
-                    //[JsonProperty("jobPoster")]
-                    //[JsonProperty("locationDescription")]
-        
             }
         }
 
@@ -88,16 +72,6 @@ namespace Tinder4Jobs.ViewModel
             }
         }
 
-        //public String Age
-        //{
-        //    get
-        //    {
-        //        if (_currentRec == null)
-        //            return "Try Later";
-        //        return String.Format("{0:N0}", Math.Floor(DateTime.UtcNow.Subtract(DateTime.Parse(_currentRec.BirthDate)).TotalDays / 365));
-        //    }
-        //}
-
         public LinkedinJob CurrentJobReccomendation
         {
             get { return _currentJob; }
@@ -113,16 +87,6 @@ namespace Tinder4Jobs.ViewModel
             }
         }
 
-        //public Int32 LikeCount
-        //{
-        //    get
-        //    {
-        //        if (_currentRec == null)
-        //            return 0;
-        //        return _currentRec.CommonLikeCount;
-        //    }
-        //}
-
         public SolidColorBrush FriendsBrush
         {
             get
@@ -130,6 +94,7 @@ namespace Tinder4Jobs.ViewModel
                 return JobCount > 0 ? BLACK_BRUSH : GRAY_BRUSH;
             }
         }
+        
         public SolidColorBrush LikesBrush
         {
             get
@@ -137,13 +102,6 @@ namespace Tinder4Jobs.ViewModel
                 return JobCount > 0 ? BLACK_BRUSH : GRAY_BRUSH;
             }
         }
-        //public SolidColorBrush PhotosBrush
-        //{
-        //    get
-        //    {
-        //        return PhotoCount > 0 ? BLACK_BRUSH : GRAY_BRUSH;
-        //    }
-        //}
 
         public ICommand LikeUserCommand
         {
@@ -170,26 +128,6 @@ namespace Tinder4Jobs.ViewModel
             }
         }
 
-        //public Int32 PhotoCount
-        //{
-        //    get
-        //    {
-        //        if (_currentRec == null)
-        //            return 0;
-        //        return _currentRec.Photos.Length;
-        //    }
-        //}
-
-        //public Uri ProfilePhoto
-        //{
-        //    get
-        //    {
-        //        if (_currentRec == null)
-        //            return null;
-        //        return Utils.GetMainPhoto(_currentRec.Photos);
-        //    }
-        //}
-
         public ICommand RejectUserCommand
         {
             get { return _rejectUserCommand; }
@@ -203,45 +141,11 @@ namespace Tinder4Jobs.ViewModel
             if (TinderSession.CurrentSession.JobRecommendations.Count > 0)
             {
                 _currentJob = TinderSession.CurrentSession.JobRecommendations.Peek();
-                dbHelper.UpdateJob(_currentJob, "Approved");
+                dbHelper.UpdateJob(_currentJob, LinkedinJobStatus.Approved.ToString());
             }
 
-
-            var ret = dbHelper.ReadAllJobsByStatus("Approved");
-
-
-            //TODO - DESABILITEI
-            //LikeResponse response = await Client.Get<LikeResponse>("like/" + _currentRec.Id);
-            //if (response.Match)
-            //{
-            //    RaiseOnMatch();
-            //}
-            //else
-            //{
-                NextJobSuggestion();
-            //}
+            NextJobSuggestion();
         }
-
-        //public async void NextRecommendation()
-        //{
-        //    if (TinderSession.CurrentSession.Recommendations.Count > 0)
-        //        _currentRec = TinderSession.CurrentSession.Recommendations.Pop();
-        //    else
-        //        _currentRec = null;
-        //    RaisePropertyChanged("PhotoCount");
-        //    RaisePropertyChanged("Name");
-        //    RaisePropertyChanged("Age");
-        //    RaisePropertyChanged("FriendCount");
-        //    RaisePropertyChanged("LikeCount");
-        //    RaisePropertyChanged("ProfilePhoto");
-        //    RaisePropertyChanged("CurrentReccomendation");
-        //    RaisePropertyChanged("LikesBrush");
-        //    RaisePropertyChanged("FriendsBrush");
-        //    RaisePropertyChanged("PhotosBrush");
-
-        //    if (TinderSession.CurrentSession.Recommendations.Count == 0)
-        //        await TinderSession.CurrentSession.GetRecommendations();
-        //}
 
         public async void NextJobSuggestion()
         {
@@ -254,15 +158,9 @@ namespace Tinder4Jobs.ViewModel
             RaisePropertyChanged("Name");
             RaisePropertyChanged("DescriptionSnippet");
             RaisePropertyChanged("LocationDescription");
-            //RaisePropertyChanged("LikeCount");
-            //RaisePropertyChanged("ProfilePhoto");
             RaisePropertyChanged("CurrentJobReccomendation");
-            //RaisePropertyChanged("LikesBrush");
-            //RaisePropertyChanged("FriendsBrush");
-            //RaisePropertyChanged("PhotosBrush");
+            RaisePropertyChanged("JobCount");
 
-            //if (TinderSession.CurrentSession.Recommendations.Count == 0)
-            //    await TinderSession.CurrentSession.GetRecommendations();
         }
 
         public async void RejectUser()
@@ -272,13 +170,10 @@ namespace Tinder4Jobs.ViewModel
             if (TinderSession.CurrentSession.JobRecommendations.Count > 0)
             {
                 _currentJob = TinderSession.CurrentSession.JobRecommendations.Peek();
-                dbHelper.UpdateJob(_currentJob, "Not approved");
 
+                dbHelper.UpdateJob(_currentJob, LinkedinJobStatus.NotApproved.ToString());
             }
-
-
-            //TODO - DESABILITEI
-            //await Client.Get("pass/" + _currentRec.Id);
+            
             NextJobSuggestion();
         }
 
@@ -308,7 +203,7 @@ namespace Tinder4Jobs.ViewModel
 
         private string FormatText(string value)
         {
-            return string.Format("{0} ...", value.Substring(0, 100));
+            return string.Format("{0} ...", value.Substring(0, 200));
         }
         #endregion
     }

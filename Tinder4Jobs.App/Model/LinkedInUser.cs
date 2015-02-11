@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Tinder4Jobs.Library.Linkedin
+namespace Tinder4Jobs.Model
 {
     public class LinkedinUser
     {

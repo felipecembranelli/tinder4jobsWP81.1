@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tinder4Jobs.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,7 +26,7 @@ namespace Tinder4Jobs
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        List<SampleData> list = new List<SampleData>();
+        //List<SampleData> list = new List<SampleData>();
             
 
         public JobList()
@@ -67,40 +68,9 @@ namespace Tinder4Jobs
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            LinkedinJob job = new LinkedinJob();
 
-            //this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
-
-            string jobDesc = this.FormatText(@"Description : successful Relationship Manager has a strategic approach to selling, able to bring value to the customer and serve as a trusted advisor. They invest in making the customer stronger and proactively seek out opportunities for growth. Have the best interest of the client in mind and act as an internal advocate to ensure they are set up for success.
-Responsibilities
-Drive revenue
-Proactive selling and growing the account off-cycle is a key aspect of the success of a RM. This is not just an Account Manager or renewals job. LinkendIn Relationship Manager are sales people and thrive on growing their book of business by creating value;
-We have a strong value for bringing an exceptional client experience and it is the job of the Relationship Manager to make sure that we support our clients' business with excellence. We want our customers to not just do business with us because we have the best talent solutions in the market, but also because they love doing business with us.
-Invest in the team
-We have very strong teams here at LinkedIn. One of the greatest things about working in sales at LinkedIn is the people that you will work with. Our Relationship Managers invest heavily in each other, growing and finding success in the job by learning from one anothers' successes and failures and by building each other up.
-Requirements
-Proven record of driving results in a high-growth company environment;
-Established reputation as a high integrity, top performer;
-Good experience with sales;
-Experience in staffing agencies is a plus;
-Experience with Salesforce.com platform is a plus.");
-
-            SampleData s1 = new SampleData() { CompanyName = "Microsoft", DescriptionSnippet = jobDesc, JobId= "JobId: 8787", JobPoster="Job Poster: Mary" };
-            SampleData s2 = new SampleData() { CompanyName = "Dell", DescriptionSnippet = jobDesc, JobId = "JobId: 8787", JobPoster = "Job Poster: Mary" };
-            SampleData s3 = new SampleData() { CompanyName = "xxx", DescriptionSnippet = jobDesc, JobId = "JobId: 8787", JobPoster = "Job Poster: Mary" };
-            SampleData s4 = new SampleData() { CompanyName = "xxx", DescriptionSnippet = jobDesc, JobId = "JobId: 8787", JobPoster = "Job Poster: Mary" };
-
-            list.Add(s1);
-            list.Add(s2);
-            list.Add(s3);
-            list.Add(s4);
-            list.Add(s1);
-            list.Add(s2);
-            list.Add(s3);
-            list.Add(s4);
-            list.Add(s1);
-            list.Add(s2);
-            list.Add(s3);
-            list.Add(s4);
+            var list = job.GetAllJobsByStatus(LinkedinJobStatus.Approved.ToString());
 
             this.DefaultViewModel["Like"] = list;
 
@@ -109,18 +79,17 @@ Experience with Salesforce.com platform is a plus.");
 
         private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
         {
+
+            LinkedinJob job = new LinkedinJob();
+
+            var list = job.GetAllJobsByStatus(LinkedinJobStatus.NotApproved.ToString());
+
             this.DefaultViewModel["Pass"] = list;
 
             this.ListViewReproved.ItemsSource = list;
+
         }
 
-        class SampleData
-        {
-            public string CompanyName { get; set; }
-            public string DescriptionSnippet { get; set; }
-            public string JobId { get; set; }
-            public string JobPoster { get; set; }
-        }
 
         #region NavigationHelper registration
 
@@ -156,17 +125,12 @@ Experience with Salesforce.com platform is a plus.");
         {
             //// Navigate to the appropriate destination page, configuring the new page
             //// by passing required information as a navigation parameter
-            //var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            //if (!Frame.Navigate(typeof(ItemPage), itemId))
-            //{
-            //    throw new Exception(this.resourceLoader.GetString("NavigationFailedExceptionMessage"));
-            //}
-            Frame.Navigate(typeof(JobDetail));
-        }
+            var itemId = ((LinkedinJob)e.ClickedItem).Id;
+            if (!Frame.Navigate(typeof(JobDetail), itemId))
+            {
+                throw new Exception("Job detail not found");
+            }
 
-        private string FormatText(string value)
-        {
-            return string.Format("{0} ...", value.Substring(0, 100));
         }
     }
 }
