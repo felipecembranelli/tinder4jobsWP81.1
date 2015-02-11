@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using PrototypeTinder4Jobs.Controls;
+using Tinder4Jobs.Model;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -27,6 +28,7 @@ namespace Tinder4Jobs
     public sealed partial class App : Application
     {
         private TransitionCollection transitions;
+        public static LinkedinUser LinkedinUser { get; set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

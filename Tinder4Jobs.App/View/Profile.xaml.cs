@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tinder4Jobs.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -33,7 +34,7 @@ namespace Tinder4Jobs
     public sealed partial class Profile : Page
     {
         private readonly NavigationHelper navigationHelper;
-
+        private UserProfileViewModel viewModel;
 
         public Profile()
         {
@@ -42,6 +43,8 @@ namespace Tinder4Jobs
 
             this.navigationHelper = new NavigationHelper(this);
             //this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            viewModel = new UserProfileViewModel();
+            DataContext = viewModel;
         }
 
         public NavigationHelper NavigationHelper

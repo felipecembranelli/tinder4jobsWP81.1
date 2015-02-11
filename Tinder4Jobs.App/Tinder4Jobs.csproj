@@ -116,6 +116,7 @@
     <Compile Include="ViewModel\JobReccommendationsViewModel.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\UserProfileViewModel.cs" />
     <Compile Include="View\InitialPage.xaml.cs">
       <DependentUpon>InitialPage.xaml</DependentUpon>
     </Compile>

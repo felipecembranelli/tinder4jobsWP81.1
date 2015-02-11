@@ -4,9 +4,6 @@ namespace Tinder4Jobs.Model
 {
     public class LinkedinUser
     {
-        //[JsonProperty("id")]
-        //public string Id { get; set; }
-
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
 

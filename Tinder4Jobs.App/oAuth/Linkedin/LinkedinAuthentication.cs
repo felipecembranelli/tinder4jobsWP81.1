@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Tinder4Jobs.Library;
 using Tinder4Jobs.Model;
 using Tinder4Jobs.OAuth;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Tinder4Jobs.oAuth.Linkedin
@@ -103,6 +104,8 @@ namespace Tinder4Jobs.oAuth.Linkedin
 
 
             var linkedinUser = JsonConvert.DeserializeObject<LinkedinUser>(_linkedInProfile);
+
+            App.LinkedinUser = linkedinUser;
 
 
             if (linkedinUser.FirstName == null)
