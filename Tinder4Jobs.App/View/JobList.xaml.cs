@@ -26,7 +26,6 @@ namespace Tinder4Jobs
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        //List<SampleData> list = new List<SampleData>();
             
 
         public JobList()

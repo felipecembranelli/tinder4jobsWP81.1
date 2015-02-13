@@ -1,0 +1,16 @@
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\App.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\App.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\InitialPage.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\InitialPage.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\Logging.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\Logging.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\Profile.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\Profile.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\JobDetail.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\JobDetail.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\JobList.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\JobList.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\MainPage.g.i.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\View\MainPage.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\tinder4jobs\Tinder4Jobs.App\obj\Debug\XamlSaveStateFile.xml

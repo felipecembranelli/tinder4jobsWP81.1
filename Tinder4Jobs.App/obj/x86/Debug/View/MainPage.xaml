@@ -1,0 +1,615 @@
+﻿<Page
+    x:Class="Tinder4Jobs.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrototypeTinder4Jobs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}" />
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+            <Setter Property="FontSize" Value="{StaticResource TextStyleMediumFontSize}" />
+            <Setter Property="Padding" Value="10,5,10,6" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="125"
+                                Height="125"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0"
+                                                            Storyboard.TargetName="ellipse"
+                                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                            To="Red"
+                                                            d:IsOptimized="True" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse"
+                                     Canvas.Left="1"
+                                     Canvas.Top="1"
+                                     Width="{TemplateBinding Width}"
+                                     Height="{TemplateBinding Height}"
+                                     Fill="#FFF4F4F5"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="15" />
+                            <ContentPresenter Width="100" Height="100" />
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LikeButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}" />
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+            <Setter Property="FontSize" Value="{StaticResource TextStyleMediumFontSize}" />
+            <Setter Property="Padding" Value="10,5,10,6" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="125"
+                                Height="125"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0"
+                                                            Storyboard.TargetName="ellipse"
+                                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                            To="#FF3AFF00"
+                                                            d:IsOptimized="True" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse"
+                                     Canvas.Left="1"
+                                     Canvas.Top="1"
+                                     Width="{TemplateBinding Width}"
+                                     Height="{TemplateBinding Height}"
+                                     Fill="#FFF4F4F5"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="15" />
+                            <ContentPresenter Width="100" Height="100" />
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="InfoButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}" />
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+            <Setter Property="FontSize" Value="{StaticResource TextStyleMediumFontSize}" />
+            <Setter Property="Padding" Value="0,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Canvas Width="125"
+                                Height="125"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0"
+                                                            Storyboard.TargetName="ellipse"
+                                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                            To="#FF00A7E5"
+                                                            d:IsOptimized="True" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="ellipse"
+                                     Canvas.Left="25"
+                                     Canvas.Top="1"
+                                     Width="{TemplateBinding Width}"
+                                     Height="{TemplateBinding Height}"
+                                     Fill="#FFF4F4F5"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="12" />
+                            <ContentPresenter Width="100" Height="100" />
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="ImageBorderBrush" Color="#FFA4A4A4" />
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF616161" />
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+    </Page.Resources>
+
+    <Page.FontFamily>
+        <StaticResource ResourceKey="PhoneFontFamilyNormal" />
+    </Page.FontFamily>
+
+    <!--<Page.FontSize>
+        <StaticResource ResourceKey="PhoneFontSizeNormal" />
+    </Page.FontSize>-->
+
+    <Page.Foreground>
+        <StaticResource ResourceKey="PhoneForegroundBrush" />
+    </Page.Foreground>
+    <!--<Page.Background>
+        <StaticResource ResourceKey="PhoneBorderBrush" />
+    </Page.Background>-->
+
+    <Grid Width="Auto" Background="#FFF6F6F2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+        <Grid Height="65"
+            VerticalAlignment="Top"
+            Background="White"
+             Grid.Row="0" >
+            <Button x:ConnectionId='7' Width="65"
+                                            Height="65"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            BorderBrush="{StaticResource PhoneAccentBrush}"
+                                            BorderThickness="0,0,0,0"
+                                            Foreground="{StaticResource PhoneAccentBrush}"
+                                            Padding="0"
+                                          
+                                                                >
+                <Rectangle Width="65"
+                                                   Height="36"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Opacity="10"
+                                                   Stroke="Black" >
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Images/menu.png" Stretch="None" />
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Button>
+
+            <Image Margin="10,0,0,0"
+                   
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Source="/Assets/Images/Tinder4JobsTopLogo.jpg"
+                                           Stretch="None" />
+
+            <Button x:ConnectionId='8' Width="65"
+                Height="65"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Foreground="{StaticResource PhoneAccentBrush}"
+                Padding="0"
+                                        
+                Visibility="Collapsed">
+                <Rectangle Width="65"
+                    Height="37"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Stroke="Black">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Assets/Images/Chats.png" Stretch="None" />
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Button>
+
+        </Grid>
+        <!--<Grid x:Name="LayoutRoot" Background="#FFF6F6F2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>-->
+
+        <!--<StackPanel 
+            Grid.Row="1" 
+            Background="#FFF6F6F2" 
+            VerticalAlignment="Stretch" 
+            Height="Auto">-->
+
+            <Border
+                Grid.Row="1"
+                Height="406"
+                CornerRadius="10,10,10,10"
+                Margin="12,12,12,0"
+                VerticalAlignment="Top"
+                Background="#FFF0F0F0"
+                BorderBrush="{StaticResource ImageBorderBrush}"
+                Canvas.ZIndex="2"
+                BorderThickness="2" />
+            <Border Height="403"
+                     Grid.Row="1"
+                    CornerRadius="10,10,10,10"
+                 Margin="12,12,12,0"
+                VerticalAlignment="Top"
+                Background="#FFF0F0F0"
+                     BorderBrush="{StaticResource ImageBorderBrush}"
+                    Canvas.ZIndex="2"
+                BorderThickness="2" />
+            <Border x:ConnectionId='1'
+                CornerRadius="10,10,10,10"
+                 Grid.Row="1"
+                Margin="12,12,12,0"
+                Height="400"
+                VerticalAlignment="Top"
+                BorderBrush="{StaticResource ImageBorderBrush}"
+                BorderThickness="2"
+                CacheMode="BitmapCache"
+                Canvas.ZIndex="5"
+                RenderTransformOrigin="0.5,0.5" 
+                                                               
+                                                       
+            ManipulationMode="TranslateX">
+                
+                <Border.RenderTransform>
+                    <CompositeTransform x:Name="transform" TranslateX="0" />
+                </Border.RenderTransform>
+                <Border.Background>
+                    <ImageBrush ImageSource="/Assets/Images/linkedin6.png" Stretch="Fill" />
+                </Border.Background>
+                <StackPanel Orientation="Vertical" 
+                            VerticalAlignment="Stretch"
+                            >
+                    <Grid HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="12,10,10,10"
+                                VerticalAlignment="Stretch"
+                                Orientation="Vertical"
+                                    Grid.Row="0">
+                            <TextBlock TextWrapping="Wrap" 
+                               Text="Company" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="10,0,0,-5" 
+                               FontWeight="Bold"/>
+                        <TextBlock Height="Auto"
+                                   HorizontalAlignment="Stretch"
+                                Text="{Binding JobId,
+                                Mode=OneWay}"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                           Opacity="30"
+                                     TextWrapping="Wrap" Margin="0.167,0,0,0" 
+                                       Visibility="Collapsed"
+                                       />
+                        <Border BorderBrush="Gray" 
+                                    BorderThickness="1" 
+                                    Margin="5,5,5,5" 
+                                     Opacity="10"
+                                    Background="#DDFBFBFD"
+                                      CornerRadius="15,15,15,15">
+                           
+                            <TextBlock Height="Auto"
+                                   HorizontalAlignment="Stretch"
+                                Text="{Binding Name,
+                                Mode=OneWay}"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                           Opacity="30"
+                                     TextWrapping="Wrap" Margin="0.167,0,0,0" />
+                            </Border>
+                            <TextBlock TextWrapping="Wrap" 
+                               Text="Location" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="10,0,0,-5" 
+                               FontWeight="Bold"/>
+                            <Border 
+                                BorderBrush="Gray" 
+                                BorderThickness="1" 
+                                Margin="5,5,5,5"
+                                 Opacity="20" 
+                                Background="#DDFBFBFD"
+                                  CornerRadius="15,15,15,15">
+                                <TextBlock Height="Auto"
+                             Text="{Binding LocationDescription,
+                                Mode=OneWay}"
+                                   HorizontalAlignment="Stretch"
+                                   Foreground="Black"
+                                       FontSize="15"
+                                       Padding="10"
+                                   TextWrapping="Wrap" 
+                                           
+                                           />
+                            </Border>
+                            <TextBlock TextWrapping="Wrap" 
+                               Text="Description" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="10,0,0,-5" 
+                               FontWeight="Bold"/>
+                            <Border BorderBrush="Gray" 
+                                    BorderThickness="1" 
+                                    Margin="5,5,5,5"
+                                    Background="#DDFBFBFD" Opacity="0.99"
+                                      CornerRadius="15,15,15,15">
+                                <TextBlock Height="180"
+                                   TextWrapping="Wrap"
+                                       Padding="10"
+                                   HorizontalAlignment="Stretch"
+                                       FontSize="15"
+                                    Opacity="50"      
+                                    Text="{Binding DescriptionSnippet,
+                                        Mode=OneWay}"
+                                       ScrollViewer.VerticalScrollMode="Auto" 
+                                           Margin="0.167,0,0,0" 
+                                           Foreground="Black"
+                                       />
+                            </Border>
+                        <TextBlock TextWrapping="Wrap" 
+                                   Name="txtJobCount"
+                               Text="Total Jobs (0)" 
+                               Foreground="White" 
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left" 
+                               FontSize="17" 
+                               Margin="10,0,0,-5" 
+                               FontWeight="Bold"/>
+                    </StackPanel>
+                      
+                        <StackPanel Margin="12,20,10,0"
+                                VerticalAlignment="Bottom"
+                                Orientation="Vertical"
+                                    Grid.Row="1">
+                            <Border BorderBrush="Gray" BorderThickness="1" 
+                                    Margin="-10,0,-10,0" 
+                                    Background="#7F000000"
+                                    Opacity="95">
+                                <TextBlock 
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Stretch"
+                                   Foreground="White"
+                                    
+                                   Height="Auto"
+                                       FontSize="25"
+                                       Padding="10"
+                                   Text="Microsoft"
+                                   TextWrapping="Wrap" 
+                                    Margin="20,0,16,0" />
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+          
+
+            <!--<Border x:Name="matchBorder"
+                Grid.RowSpan="2"
+                Margin="12"
+                Background="#CA000000"
+                BorderThickness="0"
+                Visibility="Collapsed">
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Margin="12,24,12,0"
+                           HorizontalAlignment="Center"
+                           FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                           FontSize="50.667"
+                           Foreground="#DEFFFFFF"
+                           Text="IT'S A MATCH!"
+                           TextWrapping="Wrap" />
+                    <StackPanel Margin="0,24,0,0"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                        <TextBlock Foreground="#DEFFFFFF"
+                               Text="You and "
+                               TextWrapping="Wrap" />
+                        <TextBlock Foreground="#DEFFFFFF"
+                               Text="{Binding Name,
+                                              Mode=OneWay}"
+                               TextWrapping="Wrap" />
+                        <TextBlock Foreground="#DEFFFFFF"
+                               Text=" have liked each other!"
+                               TextWrapping="Wrap" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>-->
+        <!--</StackPanel>-->
+        <StackPanel Grid.Row="2" Background="#FFF6F6F2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal" >
+            <Button x:Name="button"
+                    Width="100"
+                    Height="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="#FFD4D4D4"
+                    Canvas.ZIndex="100"
+                    Command="{Binding RejectUserCommand,
+                                      Mode=OneWay}"
+                    Style="{StaticResource RoundButtonStyle}">
+                <TextBlock Margin="0,0,0,0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                           FontSize="64"
+                           Foreground="#FFB6B6B6"
+                           Text="X"
+                           TextWrapping="Wrap" />
+            </Button>
+            <Button x:ConnectionId='6' Width="75"
+                    Height="75"
+                    Margin="-29,0,-20,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderBrush="#FFD4D4D4"
+                    BorderThickness="3"
+                    Foreground="#FFA4A4A4"
+                    Style="{StaticResource InfoButtonStyle}"
+                                    >
+                <Image Width="70"
+                       Height="70"
+                       Margin="0,0,0,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Source="/Assets/Images/i.png"
+                       Stretch="Fill" />
+            </Button>
+            <Button Width="100"
+                    Height="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="#FFD4D4D4"
+                    Canvas.ZIndex="100"
+                    Command="{Binding LikeUserCommand,
+                                      Mode=OneWay}"
+                    Style="{StaticResource LikeButtonStyle}">
+                <Image Width="75"
+                       Height="75"
+                       Margin="0,0,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Source="/Assets/Images/Heart.png"
+                       Stretch="Fill" />
+            </Button>
+        </StackPanel>
+
+        <!--</Grid>-->
+        <ScrollViewer x:ConnectionId='2' x:Name="LeftSideBar" 
+                      Visibility="Visible"
+                      Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Width="320"
+                      HorizontalAlignment="Left"
+                      Background="#FF272727"
+                      Foreground="#DEFFFFFF"
+                      RenderTransformOrigin="0.5,0.5" 
+                                                 
+                      Canvas.ZIndex="6"
+                      >
+
+            <ScrollViewer.RenderTransform>
+                <CompositeTransform TranslateX="-320" x:Name="LeftBarTransform" />
+            </ScrollViewer.RenderTransform>
+            <StackPanel Margin="24,36,0,0" Canvas.ZIndex="0">
+                <Button x:ConnectionId='3' Margin="0,0,0,24"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="Transparent"
+                                                Content="Home"
+                                                HorizontalContentAlignment="Left"
+                                                Foreground="White" 
+                                                 Style="{StaticResource MainMenuButton}"
+                                                               >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Assets/Images/Map_Pin.png" Stretch="UniformToFill" />
+                    </Button.Background>
+                </Button>
+                <Button x:ConnectionId='4' x:Name="profileButton"
+                                                Margin="0,0,0,24"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="#DEFFFFFF"
+                                                Content="Profile"
+                                                Foreground="#DEFFFFFF"
+                                                Style="{StaticResource ProfileButtonStyle}"
+                                                Visibility="Visible" 
+                                          >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Assets/Images/status.png" Stretch="UniformToFill" />
+                    </Button.Background>
+
+                </Button>
+
+                <Button x:ConnectionId='5' Margin="0,0,0,24"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="#DEFFFFFF"
+                                                Content="Jobs"
+                                                Foreground="#DEFFFFFF"
+                                                Style="{StaticResource MainMenuButton}"
+                                                Visibility="Visible"
+                                          >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Assets/Images/spanner.png" Stretch="UniformToFill" />
+                    </Button.Background>
+
+
+                </Button>
+                <Button x:Name="settingsButton"
+                                                Margin="0,0,0,24"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="#DEFFFFFF"
+                                                Content="Settings"
+                                                Foreground="#DEFFFFFF"
+                             Style="{StaticResource MainMenuButton}"
+                                                Visibility="Collapsed">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Assets/Images/Spanner.png" Stretch="UniformToFill" />
+                    </Button.Background>
+                </Button>
+                <HyperlinkButton x:Name="privacyPolicy"
+                                                         Margin="0,12,0,0"
+                                                         HorizontalAlignment="Left"
+                                                         VerticalAlignment="Top"
+                                                         Content="Privacy Policy"
+                                                         Foreground="#DEFFFFFF" 
+                                     FontSize="{StaticResource TextStyleLargeFontSize}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Border x:Name="Overlay"
+             Grid.RowSpan="3"
+            Grid.Row="0"
+            Background="#7F000000"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Visibility="Collapsed"
+                Canvas.ZIndex="0">
+        </Border>
+      
+    </Grid>
+</Page>
+

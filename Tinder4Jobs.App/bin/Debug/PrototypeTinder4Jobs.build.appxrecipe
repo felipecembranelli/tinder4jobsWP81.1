@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>CIT012102</Machine>
+    <WindowsUser>feliperc</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>ab623e20-dfdb-4c3b-b78b-41d2673e578d</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\PrototypeTinder4Jobs.exe">
+      <PackagePath>PrototypeTinder4Jobs.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
+      <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactivity.dll">
+      <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\active_404.png">
+      <PackagePath>Assets\Images\active_404.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Background.png">
+      <PackagePath>Assets\Images\Background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Chat.png">
+      <PackagePath>Assets\Images\Chat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Chats.png">
+      <PackagePath>Assets\Images\Chats.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\friends.png">
+      <PackagePath>Assets\Images\friends.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Heart.png">
+      <PackagePath>Assets\Images\Heart.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\i.png">
+      <PackagePath>Assets\Images\i.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\interests.png">
+      <PackagePath>Assets\Images\interests.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Like.png">
+      <PackagePath>Assets\Images\Like.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin2.png">
+      <PackagePath>Assets\Images\linkedin2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin3.png">
+      <PackagePath>Assets\Images\linkedin3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin4.png">
+      <PackagePath>Assets\Images\linkedin4.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin5.png">
+      <PackagePath>Assets\Images\linkedin5.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin6.png">
+      <PackagePath>Assets\Images\linkedin6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\linkedin7.png">
+      <PackagePath>Assets\Images\linkedin7.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Map_Pin.png">
+      <PackagePath>Assets\Images\Map_Pin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Menu.png">
+      <PackagePath>Assets\Images\Menu.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Messages.png">
+      <PackagePath>Assets\Images\Messages.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\NearbyIcon.png">
+      <PackagePath>Assets\Images\NearbyIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Pass.png">
+      <PackagePath>Assets\Images\Pass.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\photos.png">
+      <PackagePath>Assets\Images\photos.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\SendIcon.png">
+      <PackagePath>Assets\Images\SendIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Spanner.png">
+      <PackagePath>Assets\Images\Spanner.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\status.png">
+      <PackagePath>Assets\Images\status.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\Tinder4JobsTopLogo.jpg">
+      <PackagePath>Assets\Images\Tinder4JobsTopLogo.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\Assets\Images\SmallTopLogo.jpg">
+      <PackagePath>Assets\Images\SmallTopLogo.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\InitialPage.xbf">
+      <PackagePath>InitialPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\Logging.xbf">
+      <PackagePath>Logging.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\Profile.xbf">
+      <PackagePath>Profile.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\JobDetail.xbf">
+      <PackagePath>JobDetail.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\JobList.xbf">
+      <PackagePath>JobList.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\PrototypeTinder4Jobs.xr.xml">
+      <PackagePath>PrototypeTinder4Jobs.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\feliperc\OneDrive\Public\Estudo\Estudo\POCMigrationTinder4Jobs\PrototypeTinder4Jobs\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
