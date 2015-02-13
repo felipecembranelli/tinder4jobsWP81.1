@@ -15,36 +15,22 @@ namespace Tinder4Jobs.oAuth.Linkedin
 {
     class LinkedinAuthentication
     {
-        public async System.Threading.Tasks.Task Authenticate(string accessToken, string oAuthVerifier, string accessTokenSecretKey, Frame pageFrame)
+        //TODO: refatorar esta classe, separando UI do restante
+        public async System.Threading.Tasks.Task Authenticate(string accessToken, string oAuthVerifier, string accessTokenSecretKey, Frame pageFrame, ProgressRing progressRing)
         {
             OAuthUtil oAuthUtil = new OAuthUtil();
             string _consumerKey = "772jmojzy2vnra";
             string _consumerSecretKey = "hQu5DFEqP5JQyPGr";
-            //string _linkedInRequestTokenUrl = "https://api.linkedin.com/uas/oauth/requestToken";
-            //string _linkedInAccessTokenUrl = "https://api.linkedin.com/uas/oauth/accessToken";
-            //string _requestPeopleUrl = "http://api.linkedin.com/v1/people/~";
-            //string _requestConnectionsUrl = "http://api.linkedin.com/v1/people/~/connections";
-            //string _requestPositionsUrl = "http://api.linkedin.com/v1/people/~:(positions)";
-            //string _requestJobsUrl = "http://api.linkedin.com/v1/people/~/suggestions/job-suggestions";
-            //string _requestJobsByKeyWordsUrl = "https://api.linkedin.com/v1/job-search?keywords=quality";
-            //string _oAuthAuthorizeLink = "";
-            //string _requestToken = "";
-            //string _oAuthVerifier = "";
-            //string _requestTokenSecretKey = "";
-            //string _accessToken = "";
-            //string _accessTokenSecretKey = "";
             string _linkedInProfile = "";
-            //string callback = "https://www.linkedin.com/sucess.htm";
-
-
-            // INICIO
             string _requestPeopleUrl = "http://api.linkedin.com/v1/people/~";
-            //string _requestPeopleUrl = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline)";
-
             string nonce = oAuthUtil.GetNonce();
             string timeStamp = oAuthUtil.GetTimeStamp();
             bool authenticationError = false;
             string authenticationErrorMsg = string.Empty;
+
+            if (progressRing!=null)
+                progressRing.IsActive = true;
+
 
             try
             {
@@ -109,21 +95,17 @@ namespace Tinder4Jobs.oAuth.Linkedin
 
 
             if (linkedinUser.FirstName == null)
-                throw new Exception("User not authenticated.");
-            // FIM
+            {
+                if (progressRing != null)
+                    progressRing.IsActive = false;
 
-            //ProfilePhoto.Background = new ImageBrush() { ImageSource = new BitmapImage(new Uri(String.Format("https://graph.facebook.com/me/picture?access_token={0}&height=100&width=100", accessToken))) };
+                throw new Exception("User not authenticated.");
+            }
 
             LinkedInSessionInfo sessionInfo = new LinkedInSessionInfo();
             sessionInfo.AcessToken = accessToken;
             sessionInfo.LinkedInID = linkedinUser.FirstName;
             sessionInfo.LinkedinUser = linkedinUser;
-
-            //Geolocator location = new Geolocator();
-            //location.DesiredAccuracy = PositionAccuracy.Default;
-            //var usrLocation = await location.GetGeopositionAsync();
-
-            //TinderSession activeSession = TinderSession.CreateNewSession(sessionInfo, new GeographicalCordinates() { Latitude = usrLocation.Coordinate.Latitude, Longitude = usrLocation.Coordinate.Longitude });
 
             TinderSession activeSession = TinderSession.CreateNewSession(sessionInfo);
 
@@ -131,18 +113,11 @@ namespace Tinder4Jobs.oAuth.Linkedin
             {
                 if (await activeSession.LoadLinkedinJobSuggestions(_consumerKey, accessToken, oAuthVerifier, _consumerSecretKey, accessTokenSecretKey))
                 {
-                    //TODO : verificar por que está null o rightsidebar
-                    // (App.Current as App).RightSideBar.DataContext = activeSession.Matches;
-
-                    //TopBarViewModel.ShowTopButtons = Visibility.Visible;
+                    if (progressRing != null)
+                        progressRing.IsActive = false;
 
                     pageFrame.Navigate(typeof(MainPage));
 
-                    //(App.Current as App).RootFrameInstance.Navigate(typeof(Main));
-
-                    //NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
-
-                    //App.RootFrame.RemoveBackEntry();
                 }
 
             }
@@ -166,6 +141,9 @@ namespace Tinder4Jobs.oAuth.Linkedin
             oAuthData.AccessTokenSecretKey = accessTokenSecretKey;
 
             oAuthSessionManager.Save(oAuthData);
+
+            if (progressRing != null)
+                progressRing.IsActive = false;
 
         }
     }

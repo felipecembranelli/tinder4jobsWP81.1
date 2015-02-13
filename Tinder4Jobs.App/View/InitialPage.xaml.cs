@@ -44,7 +44,7 @@ namespace Tinder4Jobs
             // verify if already logged in authenticator authority
             var oAuthData = oAuthSessionManager.Load();
 
-            if (oAuthData != null)
+            if (oAuthData.AccessToken != null)
             {
                 // create session
                 LinkedinAuthentication lkdAuth = new LinkedinAuthentication();
@@ -54,7 +54,9 @@ namespace Tinder4Jobs
                     lkdAuth.Authenticate(oAuthData.AccessToken,
                     oAuthData.OAuthVerifier,
                     oAuthData.AccessTokenSecretKey,
-                    this.Frame);
+                    this.Frame,
+                    this.BusyProgressRing);
+
                 }
                 catch (Exception ex)
                 {
@@ -66,6 +68,11 @@ namespace Tinder4Jobs
             {
                 LoginButtonBorder.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)

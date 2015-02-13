@@ -94,6 +94,15 @@
 
     </Page.Resources>
     <Grid>
+        <!--<TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                               FontSize="20"
+                               Foreground="#DE000000"
+                               Text="Loading data from Linkedin..."
+                               TextAlignment="Center"
+                               TextWrapping="Wrap" />-->
+        <ProgressRing Name="BusyProgressRing" IsActive="false"></ProgressRing>
         <Border x:Name="LoginButtonBorder"
                 Grid.RowSpan="2"
                 Margin="12,50,12,0"
